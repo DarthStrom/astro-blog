@@ -1,28 +1,16 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<p>
-				I'm a software developer focused on simplicity, clarity, and thoughtful collaboration.
-				I gravitate toward tools and patterns that reduce complexity and make long-term maintenance easier.
-				I aim to bring a calm, reliable approach to the work I do - and to the people I work with.
-			</p>
-			<p>
-				I try to post things worth sharing on my <a href="/blog">blog</a>.
-				You can see more about my work in <a href="https://resume.jasonduffy.com">my online resume</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<p>
+		I'm a software developer focused on simplicity, clarity, and thoughtful collaboration.
+		I gravitate toward tools and patterns that reduce complexity and make long-term maintenance easier.
+		I aim to bring a calm, reliable approach to the work I do - and to the people I work with.
+	</p>
+	<p>
+		I try to post things worth sharing on my <a href="/blog">blog</a>.
+		You can see more about my work in <a href="https://resume.jasonduffy.com">my online resume</a>.
+	</p>
+</BaseLayout>
