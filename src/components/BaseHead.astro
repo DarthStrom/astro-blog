@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { SITE_TITLE } from '../consts';
 
 interface Props {
 	title: string;
@@ -25,6 +26,9 @@ const { title, description, image = '/abstract.jpg' } = Astro.props;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<!-- RSS Auto-Discovery -->
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
