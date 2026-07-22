@@ -55,6 +55,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		.last-updated-on {
 			font-style: italic;
 		}
+		.permalink {
+			color: inherit;
+			text-decoration: none;
+		}
+		.permalink:hover,
+		.permalink:focus {
+			text-decoration: underline;
+		}
+		.title .byline {
+			margin: 0 0 0.5em;
+			color: rgb(var(--gray));
+		}
 
 		.container {
 			max-width: 50rem;
@@ -72,26 +84,33 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			margin: 3rem 0 0;
 		}
 	</style>
-	<article>
+	<article class="h-entry">
 		<div class="hero-image">
-			{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+			{heroImage && <img class="u-featured" width={1020} height={510} src={heroImage} alt="" />}
 		</div>
 		<div class="prose">
 			<div class="title">
 				<div class="date">
-					<FormattedDate date={pubDate} />
+					<a class="u-url permalink" href={Astro.url.pathname}>
+						<FormattedDate class="dt-published" date={pubDate} />
+					</a>
 					{
 						updatedDate && (
 							<div class="last-updated-on">
-								Last updated on <FormattedDate date={updatedDate} />
+								Last updated on <FormattedDate class="dt-updated" date={updatedDate} />
 							</div>
 						)
 					}
 				</div>
-				<h1>{title}</h1>
+				<h1 class="p-name">{title}</h1>
+				<p class="byline">
+					by <a class="p-author h-card" href="/">Jason Duffy</a>
+				</p>
 				<hr />
 			</div>
-			<slot />
+			<div class="e-content">
+				<slot />
+			</div>
 		</div>
 	</article>
 </BaseLayout>
