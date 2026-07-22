@@ -1,6 +1,6 @@
 ---
 title: "Swift Type Erasure"
-description: ""
+description: "A walkthrough of Swift's type erasure pattern, using Force wielders to show how to put protocols with associated types into a collection."
 pubDate: "2017-07-23"
 ---
 
