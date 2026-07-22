@@ -1,5 +1,22 @@
-import * as d3 from "d3";
-import * as echarts from "echarts";
+import { quantile } from "d3-array";
+import * as echarts from "echarts/core";
+import { BarChart, LineChart, ScatterChart } from "echarts/charts";
+import {
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
+
+echarts.use([
+  BarChart,
+  LineChart,
+  ScatterChart,
+  GridComponent,
+  TitleComponent,
+  TooltipComponent,
+  CanvasRenderer,
+]);
 
 const cycleTimeDiv = "#cycleTime";
 const monteCarloDiv = "#monteCarlo";
@@ -25,7 +42,7 @@ const getCycleTime = (item) => {
   return (item.doneDate - item.startedDate) / (1000 * 3600 * 24) + 1;
 };
 
-const eightyFifthCycle = d3.quantile(completedItems, 0.85, getCycleTime);
+const eightyFifthCycle = quantile(completedItems, 0.85, getCycleTime);
 
 const cycleTimeChart = echarts.init(document.querySelector(cycleTimeDiv));
 window.addEventListener("resize", () => cycleTimeChart.resize());
