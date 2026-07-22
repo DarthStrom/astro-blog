@@ -1,6 +1,6 @@
 ---
 title: "First Post"
-description: ""
+description: "The obligatory hello-world post: why this blog exists and what I planned to write about."
 pubDate: "2016-05-04"
 ---
 
