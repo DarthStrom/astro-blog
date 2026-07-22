@@ -20,9 +20,9 @@ importers:
       astro:
         specifier: ^7.1.1
         version: 7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@24.13.3)(rollup@4.34.0)
-      d3:
-        specifier: ^7.9.0
-        version: 7.9.0
+      d3-array:
+        specifier: ^3.2.4
+        version: 3.2.4
       echarts:
         specifier: ^5.6.0
         version: 5.6.0
