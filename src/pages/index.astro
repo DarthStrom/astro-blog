@@ -4,9 +4,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import FormattedDate from '../components/FormattedDate.astro';
 import { getCollection } from 'astro:content';
 
-const featuredPosts = (await getCollection('blog', ({ data }) => data.featured === true)).sort(
+const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const featuredPosts = posts.filter(({ data }) => data.featured === true);
+const recentPosts = posts.slice(0, 3);
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -36,6 +38,21 @@ const featuredPosts = (await getCollection('blog', ({ data }) => data.featured =
 				))
 			}
 		</ul>
+	</section>
+	<section>
+		<h2>Recent writing</h2>
+		<ul>
+			{
+				recentPosts.map((post) => (
+					<li>
+						<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+						<p><FormattedDate date={post.data.pubDate} /></p>
+						<p>{post.data.description}</p>
+					</li>
+				))
+			}
+		</ul>
+		<p><a href="/blog">Browse all writing</a></p>
 	</section>
 </BaseLayout>
 
