@@ -1,6 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+
+const featuredPosts = (await getCollection('blog', ({ data }) => data.featured === true)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -17,6 +23,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			or see more about my professional work in <a href="https://resume.jasonduffy.com">my online resume</a>.
 		</p>
 	</div>
+	<section>
+		<h2>Selected writing</h2>
+		<ul>
+			{
+				featuredPosts.map((post) => (
+					<li>
+						<h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+						<p><FormattedDate date={post.data.pubDate} /></p>
+						<p>{post.data.description}</p>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </BaseLayout>
 
 <style>

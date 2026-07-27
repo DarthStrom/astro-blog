@@ -1,6 +1,7 @@
 ---
 title: "Extrospective: To Pair or Not To Pair"
 description: "An introvert's honest look at two years of full-time pair programming, with research-backed conclusions about when pairing helps and when it hurts."
+featured: true
 pubDate: "2016-05-13"
 ---
 

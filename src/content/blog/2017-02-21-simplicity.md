@@ -1,6 +1,7 @@
 ---
 title: "The Virtue of Simplicity"
 description: "Why simplicity is a choice that takes hard work: complexity smells to watch for and remedies like value types, functional style, and composition."
+featured: true
 pubDate: "2017-02-21"
 ---
 
