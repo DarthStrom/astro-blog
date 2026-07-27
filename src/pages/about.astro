@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+	title={`About | ${SITE_TITLE}`}
+	description="Learn about Jason Duffy, a software developer who writes about software, systems, simplicity, and thoughtful collaboration."
+>
+	<h1>About Jason Duffy</h1>
+	<p>
+		I'm a software developer interested in how clear thinking, careful design, and useful tools
+		can make complex systems easier to understand and maintain.
+	</p>
+	<p>
+		Through Holocron, I write about software design, forecasting, maintainability, and the ways
+		people work together.
+	</p>
+	<p>I value simplicity and thoughtful collaboration.</p>
+	<p>
+		Read the <a href="/blog">writing archive</a>, see my <a href="https://resume.jasonduffy.com">online resume</a>, or find me on <a href="https://github.com/DarthStrom" target="_blank" rel="me">GitHub</a>, <a href="https://bsky.app/profile/darthstrom.bsky.social" target="_blank" rel="me">Bluesky</a>, and <a href="https://x.com/DarthStrom" target="_blank" rel="me">X</a>.
+	</p>
+</BaseLayout>
